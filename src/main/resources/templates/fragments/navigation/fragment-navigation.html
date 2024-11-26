@@ -1,0 +1,14 @@
+<nav xmlns:th="http://www.thymeleaf.org" data-th-fragment="frag-nav">
+	<ul>
+		<li><a href="/formateurs" data-th-text="#{frag-nav.a.formateurs}"></a></li>
+		<li><a href="/formateurs/creer"
+			data-th-text="#{frag-nav.a.creation}"></a></li>
+		<li></li>
+		<li data-th-if="${#authorization.expression('isAuthenticated()')}"
+			sec:authentication="name"></li>
+		<li sec:authorize="isAuthenticated()"><a
+			href="/logout" data-th-text="Déconnexion"></a></li>
+				<li sec:authorize="!isAuthenticated()"><a
+			href="/login" data-th-text="Connexion"></a></li>
+	</ul>
+</nav>
